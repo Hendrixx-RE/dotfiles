@@ -1,0 +1,23 @@
+[opener]
+# Explicitly set the 'edit' opener to Neovim.
+# This overrides the default that might be using nano/vi/etc.
+edit = [
+    { run = 'nvim "$@"', desc = "Neovim", block = true, for = "unix" },
+]
+play = [
+	{ run = 'mpv "$@"', orphan = true, for = "unix" },
+]
+# Add this for nsxiv
+view = [
+    { run = 'nsxiv -a "$@"', desc = "nsxiv", orphan = true, for = "unix" },
+]
+
+[open]
+prepend_rules = [
+    { mime = "image/*", use = "view" },
+]
+  
+[mgr]
+sort_by      = "mtime"
+sort_reverse = true
+sort_dir_first = true
