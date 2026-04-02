@@ -70,8 +70,8 @@ set highlight-color rgba(204,36,29,0.5)
 set highlight-active-color rgba(215,153,33,0.5)
 
 # Represent light/dark colors in recoloring mode
-set recolor-lightcolor rgba(0,0,0,0)
-set recolor-darkcolor '#ebdbb2'
+set recolor-lightcolor rgba(43,43,43,1)
+set recolor-darkcolor rgba(235,219,178,1)
 
 # 'Loading...' text
 set render-loading-fg '#ebdbb2'

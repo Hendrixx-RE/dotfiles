@@ -15,6 +15,7 @@ return {
           args = {
             "$FILENAME_WITH_EXTENSION",
             "-std=c++20",
+            "-O0",
             "-I/home/hendrixx/myheaders",
             "-o",
             "$FILENAME_WITHOUT_EXTENSION",

@@ -79,7 +79,7 @@ alias pl='$aurhelper -Qs' # list installed package
 alias pa='$aurhelper -Ss' # list available package
 alias pc='$aurhelper -Sc' # remove unused cache
 alias po='$aurhelper -Qtdq | $aurhelper -Rns -' # remove unused packages, also try > $aurhelper -Qqd | $aurhelper -Rsu --print -
-alias update='fastfetch&&yay'
+alias update='fastfetch;yay;yay -Yc;sudo pacman -Rns $(pacman -Qtdq)'
 alias mt='smassh'
 alias isinstalled='pacman -Q'
 alias dotsrepo='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
@@ -89,6 +89,8 @@ alias ...='cd ../..'
 alias .3='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
+alias wifi=wlctl
+alias volume=wiremix
 
 # Always mkdir a path (this doesn't inhibit functionality to make a single dir)
 alias mkdir='mkdir -p'
@@ -106,6 +108,7 @@ fedit(){
   nvim "$file"
 }
 
+
 export CPLUS_INCLUDE_PATH=~/myheaders/:$CPLUS_INCLUDE_PATH
 export EDITOR=nvim
 export VISUAL=nvim
@@ -117,3 +120,81 @@ export LC_ALL=en_US.UTF-8
 
 
 eval "$(zoxide init zsh)"
+setopt NO_BANG_HIST
+export PATH="/home/hendrixx/.pixi/bin:$PATH"
+export PATH=$PATH:~/.spicetify
+
+# =============================================================================
+# NEW: ADVANCED HISTORY SETTINGS
+# =============================================================================
+# Define history file location and increase the limit for better recall
+HISTFILE=~/.zsh_history
+HISTSIZE=50000
+SAVEHIST=50000
+
+# Share history across all open terminal windows immediately
+setopt SHARE_HISTORY
+
+# Do not record duplicate entries in the history file
+setopt HIST_IGNORE_ALL_DUPS
+
+# Do not record commands that start with a space (useful for sensitive commands)
+setopt HIST_IGNORE_SPACE
+
+# Append history immediately when a command is run, rather than waiting for exit
+setopt INC_APPEND_HISTORY
+
+
+# =============================================================================
+# NEW: DIRECTORY STACK & NAVIGATION
+# =============================================================================
+# Automatically cd into a directory if you just type its name
+setopt AUTO_CD
+
+# Push the old directory onto the stack when using cd (view with `dirs -v`)
+setopt AUTO_PUSHD
+
+# Prevent duplicate directories from cluttering the directory stack
+setopt PUSHD_IGNORE_DUPS
+
+# Keep the terminal quiet by not printing the stack after every cd
+setopt PUSHD_SILENT
+
+
+# =============================================================================
+# NEW: AUTO-COMPLETION ENHANCEMENTS
+# =============================================================================
+# Enable an interactive, arrow-key navigable menu for tab completion
+zstyle ':completion:*' menu select
+
+# Allow completion to trigger from the middle of a typed word
+setopt COMPLETE_IN_WORD
+
+# Always move the cursor to the end of the word after a successful tab completion
+setopt ALWAYS_TO_END
+
+
+# =============================================================================
+# NEW: CORRECTION AND GLOBBING
+# =============================================================================
+# Automatically suggest spelling corrections for mistyped commands
+setopt CORRECT
+
+# Enable advanced pattern matching syntax (e.g., ^, ~, #)
+setopt EXTENDED_GLOB
+
+# Prevent the shell from throwing an error if a wildcard/glob finds no matches
+unsetopt NOMATCH
+
+
+# =============================================================================
+# NEW: GLOBAL ALIASES
+# =============================================================================
+# Global aliases work anywhere in the command line, making piping much faster
+alias -g G='| grep -i'    # Example usage: cat file.txt G "error"
+alias -g L='| less'       # Example usage: ls -la L
+alias -g C='| wc -l'      # Example usage: ls -la C (counts the lines)
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"

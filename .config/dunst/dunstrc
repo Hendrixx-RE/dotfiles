@@ -64,7 +64,7 @@
     progress_bar_corner_radius = 4
 
     # Corner radius for the icon image.
-    icon_corner_radius = 10
+    icon_corner_radius = 8
 
     # Show how many messages are currently hidden (because of
     # notification_limit).
@@ -250,7 +250,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 10
+    corner_radius = 8
 
     # Ignore the dbus closeNotification message.
     # Useful to enforce the timeout set by dunst configuration. Without this
@@ -442,22 +442,22 @@
     format = "<span size="250%">%s</span>\n%b"
 
 [urgency_critical]
-    background = "#d65d0e"
+    background = "#f5e0dc"
     foreground = "#1e1e2e"
-    frame_color = "#cc241d"
-    icon = "/home/hendrixx/.config/dunst/icons/invader.png"
+    frame_color = "#f38ba8"
+    icon = "/home/hendrixx/.config/dunst/icons/critical.svg"
     timeout = 0
 
 [urgency_low]
-    background = "#d79921"
-    foreground = "#FCFCFC"
-    frame_color = "#689d6a"
-    icon = "/home/hendrixx/.config/dunst/icons/invader.png"
+    background = "#828282FF"
+    foreground = "#FCFCFCE6"
+    frame_color = "#82828203"
+    icon = "/home/hendrixx/.config/dunst/icons/hyprdots.svg"
     timeout = 5
 
 [urgency_normal]
-    background = "#98971a"
-    foreground = "#FCFCFC"
-    frame_color = "#458588"
-    icon = "/home/hendrixx/.config/dunst/icons/invader.png"
+    background = "#2B2B2BFF"
+    foreground = "#FCFCFCE6"
+    frame_color = "#2B2B2B03"
+    icon = "/home/hendrixx/.config/dunst/icons/hyprdots.svg"
     timeout = 5

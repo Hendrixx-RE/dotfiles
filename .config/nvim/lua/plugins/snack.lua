@@ -16,5 +16,11 @@ return {
         ]],
       },
     },
+    terminal = {
+      win = {
+        position = "right", -- Changes the default from 'bottom' to 'right'
+        width = 0.4, -- Sets width to 40% of the screen
+      },
+    },
   },
 }
